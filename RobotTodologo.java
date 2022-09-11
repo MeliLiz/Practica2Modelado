@@ -185,42 +185,36 @@ public class RobotTodologo {
      * Metodo para reducir la distancia hacia el cliente que se atendera
      */
     public void reducirDistancia() {
-
+        clientePorAtender.setDistancia(clientePorAtender.getDistancia()-1);
     }
 
-    /**
-     * Metodo para reducir el tiempo de preparacion del pedido del cliente
-     */
-    public void reducirTiempo() {
-
-    }
 
     /**
      * Metodo para que el robot se suspenda
      */
     public void suspender() {
-
+        estadoActual.suspender();
     }
 
     /**
      * Metodo para que el robot camine
      */
     public void caminar() {
-
+        estadoActual.caminar();
     }
 
     /**
      * Metodo para que el robot atienda a un cliente
      */
     public void atender() {
-
+        estadoActual.atender();
     }
 
     /**
      * Metodo para que el robot cocine
      */
     public void cocinar() {
-
+        estadoActual.cocinar();
     }
 
     /**
