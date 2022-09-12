@@ -1,7 +1,7 @@
 /**
  * Clase para simular el item de un menu
  */
-public class MenuItem {
+public abstract class Hamburguesa {
 
     private int id;
     private String nombrePlatillo;
@@ -20,7 +20,7 @@ public class MenuItem {
      * @param tieneQueso
      * @param vegetariano
      */
-    public MenuItem(int id, String nombrePlatillo, String descripcion, double precio, boolean tieneQueso,
+    public Hamburguesa(int id, String nombrePlatillo, String descripcion, double precio, boolean tieneQueso,
             boolean vegetariano) {
         this.id = id;
         this.nombrePlatillo = nombrePlatillo;
@@ -137,4 +137,77 @@ public class MenuItem {
     public void setVegetariano(boolean vegetariano) {
         this.vegetariano = vegetariano;
     }
+
+    /**
+     * Metodo patra preparar una hamburguesa
+     */
+    public void prepararHamburguesa(){
+        prepararCarne();
+        ponerPanDeAbajo();
+        ponerMayonesa();
+        ponerCarne();
+        ponerQueso();
+        ponerVegetales();
+        ponerPanDeArriba();
+        ponerCatsup();
+        ponerMostaza();
+    }
+
+    /**
+     * Metodo para poner el pan de abajo a una hamburguesa
+     */
+    public void ponerPanDeAbajo(){
+        System.out.println("Poniendo la base del pan");
+    }
+
+    /**
+     * Metodo para poner al pan de arriba a una hamburguesa
+     */
+    public void ponerPanDeArriba(){
+        System.out.println("Poniedo la tapa a la hamburguesa");
+    }
+
+    /**
+     * Metodo para poner la mayonesa a la hamburguesa
+     */
+    public void ponerMayonesa(){
+        System.out.println("Poniendo mayonesa");
+    }
+
+    /**
+     * Metodo para poner sobres de mostaza en la orden de hamburguesa
+     */
+    public void ponerMostaza(){
+        System.out.println("Poniendo sobres de mostaza");
+    }
+
+    /**
+     * Metodo para poner la carne en la hamburguesa
+     */
+    public void ponerCarne(){
+        System.out.println("Poniendo la carne");
+    }
+
+    /**
+     * Metodo para poner vegetales en la hamburguesa
+     */
+    public abstract void ponerVegetales();
+
+    /**
+     * Metodo para poner sobres de catsup en la orden de hamburguesa
+     */
+    public void ponerCatsup(){
+        System.out.println("Poniendo sobres de catsup");
+    }
+
+    /**
+     * Metodo para preparar la carne de la hamburguesa
+     */
+    public abstract void prepararCarne();
+
+    /**
+     * Metodo para poner queso a la hamburguesa
+     */
+    public abstract void ponerQueso();
+
 }

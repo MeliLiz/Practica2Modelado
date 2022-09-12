@@ -5,15 +5,17 @@ import java.util.ArrayList;
  */
 public class MenuDinamico implements Menu {
 
-    private ArrayList<MenuItem> menuItems;// Los items del menu
+    private ArrayList<Hamburguesa> menuItems;// Los items del menu
 
     /**
      * Constructor
      * 
      * @param items Los menus disponibles
      */
-    public MenuDinamico(ArrayList<MenuItem> items) {
+    public MenuDinamico(ArrayList<Hamburguesa> items) {
         menuItems = items;
+
+        
     }
 
     /**
@@ -21,7 +23,7 @@ public class MenuDinamico implements Menu {
      * 
      * @return
      */
-    public ArrayList<MenuItem> getItems() {
+    public ArrayList<Hamburguesa> getItems() {
         return menuItems;
     }
 
@@ -30,7 +32,7 @@ public class MenuDinamico implements Menu {
      * 
      * @param menuItems
      */
-    public void setItems(ArrayList<MenuItem> items) {
+    public void setItems(ArrayList<Hamburguesa> items) {
         menuItems = items;
     }
 
@@ -39,7 +41,7 @@ public class MenuDinamico implements Menu {
      * 
      * @param item
      */
-    public void addItem(MenuItem item) {
+    public void addItem(Hamburguesa item) {
 
     }
 
@@ -48,12 +50,12 @@ public class MenuDinamico implements Menu {
      * 
      * @param item
      */
-    public void eliminarItem(MenuItem item) {
+    public void eliminarItem(Hamburguesa item) {
 
     }
 
     @Override
     public MenuIterador crearIterador() {
-        return null;// cambiar
+        return new IteradorMenuDinamico(menuItems);
     }
 }
