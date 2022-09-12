@@ -14,6 +14,55 @@ public class EstadoSuspendido implements EstadoRobot {
         this.robot = robot;
     }
 
+    @Override
+    public void suspender() {
+        if (robot.getOrdenLista()) {
+            System.out.println("**ESTADO SUSPENDIDO** \n El robot todologo pasara al ESTADO SUSPENDIDO");
+        } else {
+            System.out.println(
+                    "**ESTADO SUSPENDIDO** \n El robot todologo se encuentra suspendido, esperando un cliente");
+
+        }
+
+    }
+
+    @Override
+    public void caminar() {
+        if (robot.getOrdenLista()) {
+            System.out.println(
+                    "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
+        } else if (robot.getClientePorAtender() != null) {
+            System.out.println("**MODO SUSPENDIDO**\n El robot todologo se movera hacia el cliente");
+            robot.setEstadoActual(robot.getEstadoCaminando());
+        }
+
+    }
+
+    @Override
+    public void atender() {
+        if (robot.getOrdenLista()) {
+            System.out.println(
+                    "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
+        } else {
+            System.out
+                    .println(
+                            "**ESTADO SUSPENDIDO**\n El robot toldologo no puede atender si esta en ESTADO SUSPENDIDO");
+        }
+
+    }
+
+    @Override
+    public void cocinar() {
+        if (robot.getOrdenLista()) {
+            System.out.println(
+                    "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
+        } else {
+            System.out
+                    .println(
+                            "**ESTADO SUSPENDIDO**\n El robot toldologo no puede cocinar si esta en ESTADO SUSPENDIDO");
+        }
+    }
+
     /**
      * Metodo para obtener el robot asociado a este estado
      * 
@@ -30,25 +79,5 @@ public class EstadoSuspendido implements EstadoRobot {
      */
     public void setRobot(RobotTodologo robot) {
         this.robot = robot;
-    }
-
-    @Override
-    public void suspender() {
-
-    }
-
-    @Override
-    public void caminar() {
-
-    }
-
-    @Override
-    public void atender() {
-
-    }
-
-    @Override
-    public void cocinar() {
-
     }
 }

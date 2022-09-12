@@ -34,21 +34,30 @@ public class EstadoAtendiendo implements EstadoRobot {
 
     @Override
     public void suspender() {
+        System.out.println("**ESTADO ATENDIENDO** \n El robot todologo no puede suspenderse mientras esta atendiendo");
 
     }
 
     @Override
     public void caminar() {
-
+        System.out.println("**ESTADO ATENDIENDO** \n El robot todologo no puede caminar mientras esta atendiendo");
     }
 
     @Override
     public void atender() {
-
+        System.out.println("**ESTADO ATENDIENDO** \n El robot todologo ya esta atendiendo");
+        robot.mostrarMenu();
     }
 
     @Override
     public void cocinar() {
+        if (robot.getOrdenRecibida()) {
+            System.out.println("**ESTADO ATENDIENDO** \n El robot todologo pasara al ESTADO COCINANDO");
+            robot.setEstadoActual(robot.getEstadoCocinando());
+        } else {
+            System.out.println(
+                    "**ESTADO ATENDIENDO** \n El robot todologo no puede cocinar si no ha recibido la orden completa del cliente");
+        }
 
     }
 }
