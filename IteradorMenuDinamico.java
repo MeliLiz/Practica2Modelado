@@ -4,7 +4,7 @@ import java.util.ArrayList;
  * Clase del iterador del menu dinamico de McBurguesas
  */
 public class IteradorMenuDinamico implements MenuIterador {
-    private ArrayList<MenuItem> items;// los items del menu
+    private ArrayList<Hamburguesa> items;// los items del menu
     private int posicion;// la posicion del iterador
 
     /**
@@ -12,7 +12,7 @@ public class IteradorMenuDinamico implements MenuIterador {
      * 
      * @param items El arreglo de items
      */
-    public IteradorMenuDinamico(ArrayList<MenuItem> items) {
+    public IteradorMenuDinamico(ArrayList<Hamburguesa> items) {
         this.items = items;
         posicion = 0;
     }
@@ -22,7 +22,7 @@ public class IteradorMenuDinamico implements MenuIterador {
      * 
      * @return ArrayList<MenuItem>
      */
-    public ArrayList<MenuItem> getItems() {
+    public ArrayList<Hamburguesa> getItems() {
         return items;
     }
 
@@ -40,7 +40,7 @@ public class IteradorMenuDinamico implements MenuIterador {
      * 
      * @param items
      */
-    public void setItems(ArrayList<MenuItem> items) {
+    public void setItems(ArrayList<Hamburguesa> items) {
         this.items = items;
     }
 
@@ -55,11 +55,16 @@ public class IteradorMenuDinamico implements MenuIterador {
 
     @Override
     public boolean hasNext() {
-        return false;// cambiar
+        if(posicion>=items.size()){
+            return false;
+        }
+        return true;
     }
 
     @Override
     public Object next() {
-        return null;// cambiar
+        Hamburguesa item= items.get(posicion);
+        posicion++;
+        return item;
     }
 }

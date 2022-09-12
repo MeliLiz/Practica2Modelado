@@ -5,13 +5,13 @@ import java.util.Hashtable;
  */
 public class MenuDeLujo implements Menu {
 
-    private Hashtable<Integer, MenuItem> menuItems;
+    private Hashtable<Integer, Hamburguesa> menuItems;
 
     /**
      * Constructor
      */
     public MenuDeLujo() {
-        menuItems = new Hashtable<Integer, MenuItem>();
+        menuItems = new Hashtable<Integer, Hamburguesa>();
     }
 
     /**
@@ -19,7 +19,7 @@ public class MenuDeLujo implements Menu {
      * 
      * @return
      */
-    public Hashtable<Integer, MenuItem> getmenuItems() {
+    public Hashtable<Integer, Hamburguesa> getmenuItems() {
         return menuItems;
     }
 
@@ -28,7 +28,7 @@ public class MenuDeLujo implements Menu {
      * 
      * @param items
      */
-    public void setItems(Hashtable<Integer, MenuItem> items) {
+    public void setItems(Hashtable<Integer, Hamburguesa> items) {
         menuItems = items;
     }
 
@@ -37,7 +37,7 @@ public class MenuDeLujo implements Menu {
      * 
      * @param item
      */
-    public void addItem(MenuItem item) {
+    public void addItem(Hamburguesa item) {
 
     }
 
@@ -46,12 +46,12 @@ public class MenuDeLujo implements Menu {
      * 
      * @param item
      */
-    public void eliminarItem(MenuItem item) {
+    public void eliminarItem(Hamburguesa item) {
 
     }
 
     @Override
     public MenuIterador crearIterador() {
-        return null;// cambiar
+        return new IteradorMenuDeLujo(menuItems);
     }
 }

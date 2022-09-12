@@ -2,7 +2,7 @@
  * Clase del iterador del menu general de McBurguesas
  */
 public class IteradorMenuGeneral implements MenuIterador {
-    private MenuItem[] items;// los items del menu
+    private Hamburguesa[] items;// los items del menu
     private int posicion;// la posicion del iterador
 
     /**
@@ -10,7 +10,7 @@ public class IteradorMenuGeneral implements MenuIterador {
      * 
      * @param items El arreglo de items
      */
-    public IteradorMenuGeneral(MenuItem[] items) {
+    public IteradorMenuGeneral(Hamburguesa[] items) {
         this.items = items;
         posicion = 0;
     }
@@ -20,7 +20,7 @@ public class IteradorMenuGeneral implements MenuIterador {
      * 
      * @return MenuItem[]
      */
-    public MenuItem[] getItems() {
+    public Hamburguesa[] getItems() {
         return items;
     }
 
@@ -38,7 +38,7 @@ public class IteradorMenuGeneral implements MenuIterador {
      * 
      * @param items
      */
-    public void setItems(MenuItem[] items) {
+    public void setItems(Hamburguesa[] items) {
         this.items = items;
     }
 
@@ -53,11 +53,16 @@ public class IteradorMenuGeneral implements MenuIterador {
 
     @Override
     public boolean hasNext() {
-        return false;// cambiar
+        if(posicion >= items.length || items[posicion]==null){
+            return false;
+        }
+        return true;
     }
 
     @Override
     public Object next() {
-        return null;// cambiar
+        Hamburguesa menuItem=items[posicion];
+        posicion++;
+        return menuItem;
     }
 }

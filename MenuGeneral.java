@@ -3,7 +3,7 @@
  */
 public class MenuGeneral implements Menu {
 
-    private MenuItem[] menuItems;
+    private Hamburguesa[] menuItems;
     private final int ITEMS_MAXIMOS;
     private int numeroDeItems;
 
@@ -13,7 +13,7 @@ public class MenuGeneral implements Menu {
      * @param maxDeItems //El numero maximo de items que se podra tener en el menu
      */
     public MenuGeneral(int maxDeItems) {
-        menuItems = new MenuItem[maxDeItems];
+        menuItems = new Hamburguesa[maxDeItems];
         ITEMS_MAXIMOS = maxDeItems;
         numeroDeItems = 0;
     }
@@ -23,7 +23,7 @@ public class MenuGeneral implements Menu {
      * 
      * @return MenuItem[]
      */
-    public MenuItem[] getItems() {
+    public Hamburguesa[] getItems() {
         return menuItems;
     }
 
@@ -32,7 +32,7 @@ public class MenuGeneral implements Menu {
      * 
      * @param items
      */
-    public void setItems(MenuItem[] items) {
+    public void setItems(Hamburguesa[] items) {
         menuItems = items;
     }
 
@@ -59,12 +59,12 @@ public class MenuGeneral implements Menu {
      * 
      * @param item
      */
-    public void addItem(MenuItem item) {
-
+    public void addItem(Hamburguesa item) {
+        
     }
 
     @Override
     public MenuIterador crearIterador() {
-        return null;// cambiar
+        return new IteradorMenuGeneral(menuItems);
     }
 }
