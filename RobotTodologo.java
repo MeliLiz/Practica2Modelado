@@ -38,12 +38,26 @@ public class RobotTodologo {
     }
 
     /**
-     * Metodo para saber si el robot ya llego a la mesa que debe atnder
+     * Metodo para saber si el robot ya llego a la mesa que debe atender
      * 
      * @return boolean
      */
     public boolean getMesaCorrecta() {
-        return mesaCorrecta;
+        if (clientePorAtender.getDistancia() > 0) {
+            return mesaCorrecta;
+        } else {
+            mesaCorrecta = true;
+            return mesaCorrecta;
+        }
+    }
+
+    /**
+     * Metodo que regresa el cliente por atender.
+     * 
+     * @return El cliente por atender.
+     */
+    public Cliente getClientePorAtender() {
+        return clientePorAtender;
     }
 
     /**
@@ -185,9 +199,8 @@ public class RobotTodologo {
      * Metodo para reducir la distancia hacia el cliente que se atendera
      */
     public void reducirDistancia() {
-        clientePorAtender.setDistancia(clientePorAtender.getDistancia()-1);
+        clientePorAtender.setDistancia(clientePorAtender.getDistancia() - 1);
     }
-
 
     /**
      * Metodo para que el robot se suspenda
@@ -208,6 +221,7 @@ public class RobotTodologo {
      */
     public void atender() {
         estadoActual.atender();
+
     }
 
     /**
@@ -220,7 +234,7 @@ public class RobotTodologo {
     /**
      * Metodo para mostrar los menus disponibles
      */
-    private void mostrarMenu() {
+    public void mostrarMenu() {
 
     }
 
