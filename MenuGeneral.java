@@ -1,21 +1,23 @@
+import java.util.Iterator;
 /**
  * Clase del menu general de McBurguesas
  */
 public class MenuGeneral implements Menu {
 
     private Hamburguesa[] menuItems;
-    private final int ITEMS_MAXIMOS;
-    private int numeroDeItems;
+    private final int ITEMS_MAXIMOS = 3;
+   
 
     /**
      * Constructor
      * 
      * @param maxDeItems //El numero maximo de items que se podra tener en el menu
      */
-    public MenuGeneral(int maxDeItems) {
-        menuItems = new Hamburguesa[maxDeItems];
-        ITEMS_MAXIMOS = maxDeItems;
-        numeroDeItems = 0;
+    public MenuGeneral() {
+        menuItems = new Hamburguesa[ITEMS_MAXIMOS];
+        menuItems[0] = new HamburguesaClasica();
+        menuItems[1] = new HamburguesaClasicaVegetariana();
+        menuItems[2] = new HamburguesaDoble();
     }
 
     /**
@@ -45,26 +47,48 @@ public class MenuGeneral implements Menu {
         return ITEMS_MAXIMOS;
     }
 
-    /**
-     * Metodo para obtener el numero de items en el menu
-     * 
-     * @return int
-     */
-    public int getNumeroDeItems() {
-        return numeroDeItems;
-    }
 
-    /**
-     * Metodo para agregar items al mennu
-     * 
-     * @param item
-     */
-    public void addItem(Hamburguesa item) {
-        
+    
+
+    @Override
+    public Iterator crearIterador() {
+        return new IteradorMenuGeneral();
     }
 
     @Override
-    public MenuIterador crearIterador() {
-        return new IteradorMenuGeneral(menuItems);
+    public String getNombre() {
+        return "***MENU GENERAL***";
     }
+
+/**
+ * Clase del iterador del menu general de McBurguesas
+ */
+private class IteradorMenuGeneral implements Iterator {
+    private int posicion;// la posicion del iterador
+
+    /**
+     * Metodo para obtener la posicion del iterador
+     * 
+     * @return int
+     */
+    public int getPosicion() {
+        return posicion;
+    }
+
+    @Override
+    public boolean hasNext() {
+        if(posicion >= menuItems.length || menuItems[posicion]==null){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public Object next() {
+        Hamburguesa menuItem=menuItems[posicion];
+        posicion++;
+        return menuItem;
+    }
+}
+
 }
