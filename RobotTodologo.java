@@ -25,6 +25,7 @@ public class RobotTodologo {
         modoCaminando = new EstadoCaminando(this);
         modoAtendiendo = new EstadoAtendiendo(this);
         modoCocinando = new EstadoCocinando(this);
+        menus=new MenusMcBurguesas();
         estadoActual = modoSuspendido;
     }
 
@@ -235,7 +236,7 @@ public class RobotTodologo {
      * Metodo para mostrar los menus disponibles
      */
     public void mostrarMenu() {
-
+        menus.mostrarMenu();
     }
 
     /**

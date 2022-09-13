@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Clase de los menus disponibles en McBurguesa
@@ -12,8 +13,11 @@ public class MenusMcBurguesas {
      * 
      * @param menus La lista de menus
      */
-    public MenusMcBurguesas(ArrayList<Menu> menus) {
-        listaMenus = menus;
+    public MenusMcBurguesas() {
+        listaMenus = new ArrayList<Menu>();
+        addMenu(new MenuGeneral());
+        addMenu(new MenuDinamico());
+        addMenu(new MenuDeLujo());
     }
 
     /**
@@ -40,7 +44,7 @@ public class MenusMcBurguesas {
      * @param menu El menu por agregar
      */
     public void addMenu(Menu menu) {
-
+        listaMenus.add(menu);
     }
 
     /**
@@ -49,22 +53,24 @@ public class MenusMcBurguesas {
      * @param menu El menu por eliminar
      */
     public void eliminarMenu(Menu menu) {
-
+        listaMenus.remove(menu);
     }
 
     /**
      * Metodo para mostrar los menus disponibles
      */
     public void mostrarMenu() {
-
+        for(Menu menu:listaMenus){
+            Iterator iterador=menu.crearIterador();
+            while (iterador.hasNext()) {
+                Hamburguesa hamburguesa=(Hamburguesa)iterador.next();
+                System.out.println(hamburguesa.getNombre());
+            }
+        }
     }
 
-    /**
-     * Metodo para mostrar los menus disponibles
-     * 
-     * @param iterador
-     */
-    public void mostrarMenu(MenuIterador iterador) {
-
+    public static void main(String[] args) {
+        MenusMcBurguesas menu=new MenusMcBurguesas();
+        menu.mostrarMenu();
     }
 }

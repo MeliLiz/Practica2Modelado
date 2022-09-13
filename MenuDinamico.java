@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Clase del menu dinamico de McBurguesas
@@ -12,10 +13,13 @@ public class MenuDinamico implements Menu {
      * 
      * @param items Los menus disponibles
      */
-    public MenuDinamico(ArrayList<Hamburguesa> items) {
-        menuItems = items;
+    public MenuDinamico() {
+        menuItems = new ArrayList<>();
 
-        
+    
+        addItem(new HamburguesaBBQ());
+        addItem(new HamburguesaDeFrijol());
+        addItem(new HamburguesaDePollo());
     }
 
     /**
@@ -42,7 +46,7 @@ public class MenuDinamico implements Menu {
      * @param item
      */
     public void addItem(Hamburguesa item) {
-
+        menuItems.add(item);
     }
 
     /**
@@ -55,7 +59,12 @@ public class MenuDinamico implements Menu {
     }
 
     @Override
-    public MenuIterador crearIterador() {
-        return new IteradorMenuDinamico(menuItems);
+    public Iterator crearIterador() {
+        return menuItems.iterator();
+    }
+
+    @Override
+    public String getNombre() {
+        return "***MENU DINAMICO**";
     }
 }
