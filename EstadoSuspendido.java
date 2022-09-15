@@ -31,9 +31,11 @@ public class EstadoSuspendido implements EstadoRobot {
         if (robot.getOrdenLista()) {
             System.out.println(
                     "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
-        } else if (robot.getClientePorAtender() != null) {
+        } else if (robot.getClientePorAtender() != null && robot.getClientePorAtender().getDistancia()>0) {
             System.out.println("**MODO SUSPENDIDO**\n El robot todologo se movera hacia el cliente");
             robot.setEstadoActual(robot.getEstadoCaminando());
+        }else{
+            System.out.println("**MODO SUSPENDIDO**\nEl robot todologo no puede caminar sin antes recibir a un cliente");
         }
 
     }
@@ -63,6 +65,12 @@ public class EstadoSuspendido implements EstadoRobot {
         }
     }
 
+    @Override
+    public void recibirCliente() {
+        System.out.println("**MODO SUSPENDIDO**\n El robot todologo pasara al estado RECIBIR CLIENTE");
+        robot.setEstadoActual(robot.getEstadoRecibirCliente());
+    }
+
     /**
      * Metodo para obtener el robot asociado a este estado
      * 
@@ -80,4 +88,5 @@ public class EstadoSuspendido implements EstadoRobot {
     public void setRobot(RobotTodologo robot) {
         this.robot = robot;
     }
+
 }

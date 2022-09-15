@@ -45,8 +45,16 @@ public class EstadoAtendiendo implements EstadoRobot {
 
     @Override
     public void atender() {
-        System.out.println("**ESTADO ATENDIENDO** \n El robot todologo ya esta atendiendo");
-        robot.mostrarMenu();
+        if(robot.getOrdenLista()){
+            System.out.println("**ESTADO ATENDIENDO**\n Entregando la "+robot.getClientePorAtender().getPedido().getNombre()+". El robot pasara al ESTADO SUSPENDIDO");
+            robot.setEstadoActual(robot.getEstadoSuspendido());
+        }else if(!robot.getOrdenRecibida()){
+            System.out.println("**ESTADO ATENDIENDO** \n El robot todologo ya esta atendiendo");
+            robot.mostrarMenu();
+            System.out.println("El robot todologo ha recibido la orden del cliente");
+        }else{
+            System.out.println("**ESTADO ATENDIENDO** \nEl robot ya tiene una orden pendiente, no puede recibir otra orden");
+        }
     }
 
     @Override
@@ -54,10 +62,15 @@ public class EstadoAtendiendo implements EstadoRobot {
         if (robot.getOrdenRecibida()) {
             System.out.println("**ESTADO ATENDIENDO** \n El robot todologo pasara al ESTADO COCINANDO");
             robot.setEstadoActual(robot.getEstadoCocinando());
-        } else {
-            System.out.println(
-                    "**ESTADO ATENDIENDO** \n El robot todologo no puede cocinar si no ha recibido la orden completa del cliente");
+        } else if(robot.getOrdenLista()){
+            System.out.println("**ESTADO ATENDIENDO**\n El robot todologo ya no puede cocinar. Tiene una orden esperando ser entregada.");
+        }else{
+            System.out.println("**ESTADO ATENDIENDO** \n El robot todologo no puede cocinar si no ha recibido la orden completa del cliente");
         }
+    }
 
+    @Override
+    public void recibirCliente() {
+        System.out.println("ESTADO ATENDIENDO**\n El robot todologo no puede recibir un cliente mientras atiende");
     }
 }

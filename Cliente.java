@@ -4,6 +4,7 @@
 public class Cliente {
 
     private int distanciaAlCliente;
+    private Hamburguesa pedido;
 
     /**
      * Constructor
@@ -30,5 +31,21 @@ public class Cliente {
      */
     public void setDistancia(int distancia) {
         distanciaAlCliente = distancia;
+    }
+
+    /**
+     * Metodo para asignar el pedido del cliente
+     * @param hamburguesa
+     */
+    public void setPedido(Hamburguesa hamburguesa){
+        pedido=hamburguesa;
+    }
+
+    /**
+     * Metodo para obtener el pedido del cliente
+     * @return
+     */
+    public Hamburguesa getPedido(){
+        return pedido;
     }
 }
