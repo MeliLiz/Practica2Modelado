@@ -3,30 +3,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        RobotTodologo robot=new RobotTodologo();
-        Scanner scanner=new Scanner(System.in);
+        RobotTodologo robot = new RobotTodologo();
+        Scanner scanner = new Scanner(System.in);
         int opcion;
 
         System.out.println("**Bienvenido a McBurguesas** ");
-        do{
+        do {
             System.out.println("\nPor favor elige una opcion (ingrese el numero)"
-            + "que deseas ejecutar.\n" + 
-            "1) Recibir cliente.\n" +
-            "2) Caminar.\n" + 
-            "3) Atender.\n" + 
-            "4) Cocinar.\n" +
-            "5) Suspender.\n" +
-            "0) Terminar simulacion.\n");
-            while (true){
+                    + "que deseas ejecutar.\n" +
+                    "1) Recibir cliente.\n" +
+                    "2) Caminar.\n" +
+                    "3) Atender.\n" +
+                    "4) Cocinar.\n" +
+                    "5) Suspender.\n" +
+                    "0) Terminar simulacion.\n");
+            while (true) {
                 try {
+                    System.out.print("Ingrese una opcion: ");
                     String respuesta = scanner.nextLine();
                     opcion = Integer.parseInt(respuesta);
+                    System.out.println();
                     break;
-                }catch (NumberFormatException ex){
-                   System.out.println("No ingresaste un numero");
+                } catch (NumberFormatException ex) {
+                    System.out.println("No ingresaste un numero");
                 }
             }
-            switch(opcion){
+            switch (opcion) {
                 case 1:
                     robot.recibirCliente();
                     break;
@@ -51,10 +53,11 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("\nLa opcion que elegiste no es valida. Por favor elige la opcion que deseas ejecutar.");
+                    System.out.println(
+                            "\nLa opcion que elegiste no es valida. Por favor elige la opcion que deseas ejecutar.");
                     break;
 
             }
-        }while(opcion != 0);
+        } while (opcion != 0);
     }
 }
