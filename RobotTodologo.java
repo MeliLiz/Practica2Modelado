@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 /**
  * Clase que simula a un robot de McBurguesas
  */
@@ -27,8 +28,8 @@ public class RobotTodologo {
         modoCaminando = new EstadoCaminando(this);
         modoAtendiendo = new EstadoAtendiendo(this);
         modoCocinando = new EstadoCocinando(this);
-        modoRecibirCliente= new EstadoRecibirCliente(this);
-        menus=new MenusMcBurguesas();
+        modoRecibirCliente = new EstadoRecibirCliente(this);
+        menus = new MenusMcBurguesas();
         estadoActual = modoSuspendido;
     }
 
@@ -120,9 +121,10 @@ public class RobotTodologo {
 
     /**
      * Metodo para obtener el estado recibir cliente del robor
+     * 
      * @return EstadoRobot
      */
-    public EstadoRobot getEstadoRecibirCliente(){
+    public EstadoRobot getEstadoRecibirCliente() {
         return modoRecibirCliente;
     }
 
@@ -246,7 +248,7 @@ public class RobotTodologo {
     /**
      * Metodo para que el robot reciba un cliente
      */
-    public void recibirCliente(){
+    public void recibirCliente() {
         estadoActual.recibirCliente();
     }
 
@@ -254,34 +256,35 @@ public class RobotTodologo {
      * Metodo para mostrar los menus disponibles y obtener la orden del cliente
      */
     public void mostrarMenu() {
-        Scanner scanner=new Scanner(System.in);
-        int respuesta=0;
-        while(respuesta==0){
-            System.out.println("\nIngresa el id del platillo de tu eleccion\n");
+        Scanner scanner = new Scanner(System.in);
+        int respuesta = 0;
+        while (respuesta == 0) {
             menus.mostrarMenu();
-            try{
-                respuesta=Integer.parseInt(scanner.nextLine());
-                Hamburguesa hamburguesa=menus.buscarPlatillo(respuesta);
-                if(hamburguesa!=null){
+            System.out.print("\nIngresa el id del platillo de tu eleccion: ");
+            System.out.println();
+            try {
+                respuesta = Integer.parseInt(scanner.nextLine());
+                Hamburguesa hamburguesa = menus.buscarPlatillo(respuesta);
+                if (hamburguesa != null) {
                     clientePorAtender.setPedido(hamburguesa);
-                    ordenRecibida=true;
-                }else{
+                    ordenRecibida = true;
+                } else {
                     System.out.println("El id del platillo que elegiste no es valido");
-                    respuesta=0;
+                    respuesta = 0;
                 }
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("No ingresaste un numero");
             }
         }
-        
+
     }
 
     /**
      * Metodo para mostrar el proceso de preparacion del pedido del cliente
      */
     public void mostrarProceso() {
-        System.out.println("Preparando "+clientePorAtender.getPedido().getNombre());
-        Hamburguesa hamburguesa=clientePorAtender.getPedido();
+        System.out.println("Preparando " + clientePorAtender.getPedido().getNombre());
+        Hamburguesa hamburguesa = clientePorAtender.getPedido();
         hamburguesa.prepararHamburguesa();
         setOrdenLista(true);
     }
@@ -289,22 +292,22 @@ public class RobotTodologo {
     /**
      * Metodo para recibir la distancia hasta un nuevo cliente por atender
      */
-    public void setCliente(){
-        Scanner scanner=new Scanner(System.in);
-        int respuesta=0;
-        while(respuesta==0){
-            System.out.println("Por favor ingresa la distancia al cliente (numero entre 1 y 10)");
-            try{
-                respuesta=Integer.parseInt(scanner.nextLine());
-                if(respuesta<1||respuesta>10){
-                    respuesta=0;
-                }else{
+    public void setCliente() {
+        Scanner scanner = new Scanner(System.in);
+        int respuesta = 0;
+        while (respuesta == 0) {
+            System.out.print("Por favor ingresa la distancia al cliente (numero entre 1 y 10): ");
+            try {
+                respuesta = Integer.parseInt(scanner.nextLine());
+                if (respuesta < 1 || respuesta > 10) {
+                    respuesta = 0;
+                } else {
                     recibirClientePorAtender(respuesta);
-                    mesaCorrecta=false;
-                    ordenRecibida=false;
-                    ordenLista=false;
+                    mesaCorrecta = false;
+                    ordenRecibida = false;
+                    ordenLista = false;
                 }
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("No ingresaste un numero");
             }
         }
