@@ -45,7 +45,7 @@ public class EstadoCaminando implements EstadoRobot {
             robot.reducirDistancia();
             System.out.println("**ESTADO CAMINANDO** \n El robot todologo se esta acercando al cliente");
         } else {
-            System.out.println("**ESTADO CAMINANDO** \n El robot todologo ya se encuentra en la mesa del cliente");
+            System.out.println("**ESTADO CAMINANDO** \n El robot todologo ya se encuentra en la mesa del cliente, ya no puede caminar mas.");
         }
     }
 
@@ -63,5 +63,10 @@ public class EstadoCaminando implements EstadoRobot {
     @Override
     public void cocinar() {
         System.out.println("**ESTADO CAMINANDO** \n El robot todologo no puede cocinar sin antes atender al cliente");
+    }
+
+    @Override
+    public void recibirCliente() {
+        System.out.println("**ESTADO CAMINANDO**\n El robot todologo no puede recibir clientes mientras camina");
     }
 }

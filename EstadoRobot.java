@@ -22,4 +22,9 @@ public interface EstadoRobot {
      * Metodo para que el robot cocine
      */
     public void cocinar();
+
+    /**
+     * Metodo para recibir la mesa y la distancia al cliente
+     */
+    public void recibirCliente();
 }

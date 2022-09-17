@@ -61,12 +61,30 @@ public class MenusMcBurguesas {
      */
     public void mostrarMenu() {
         for(Menu menu:listaMenus){
+            System.out.println("\n###"+menu.getNombre()+"###\n");
             Iterator iterador=menu.crearIterador();
             while (iterador.hasNext()) {
                 Hamburguesa hamburguesa=(Hamburguesa)iterador.next();
-                System.out.println(hamburguesa.getNombre());
+                System.out.println(hamburguesa);
             }
         }
+    }
+
+    /**
+     * Metodo para buscar un platillo con su id
+     * @param id El id del platillo
+     */
+    public Hamburguesa buscarPlatillo(int id){
+        for(Menu menu:listaMenus){
+            Iterator iterador=menu.crearIterador();
+            while (iterador.hasNext()) {
+                Hamburguesa hamburguesa=(Hamburguesa)iterador.next();
+                if(hamburguesa.getID()==id){
+                    return hamburguesa;
+                }
+            }
+        }
+        return null;
     }
 
     public static void main(String[] args) {

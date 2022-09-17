@@ -48,20 +48,28 @@ public class EstadoCocinando implements EstadoRobot {
 
     @Override
     public void atender() {
-        System.out.println("**MODO COCINANDO** \n El robot todologo no puede atender mientras cocina");
+        if(robot.getOrdenLista()){
+            System.out.println("**MODO COCINANDO**Su orden esta lista. El robot todologo pasara a ESTADO ATENDIENDO");
+            robot.setEstadoActual(robot.getEstadoAtendiendo());
+        }else{
+            System.out.println("**MODO COCINANDO** \n El robot todologo no puede atender mientras cocina");
 
+        }
     }
 
     @Override
     public void cocinar() {
-        if (robot.getOrdenLista()) {
-            System.out.println(
-                    "**MODO COCINANDO** \n El robot todologo ha terminado de cocinar, la orden esta lista, pasara a ESTADO SUSPENDIDO");
-            robot.setEstadoActual(robot.getEstadoSuspendido());
-        } else {
+        if(robot.getOrdenLista()){
+            System.out.println("**MODO COCINANDO** \n El robot todologo ya tiene la orden del cliente lista, ya no puede cocinar.");
+        }else{
             System.out.println("**MODO COCINANDO** \n El robot todologo ya se encuentra cocinando");
-
+            robot.mostrarProceso();
         }
+        
+    }
 
+    @Override
+    public void recibirCliente() {
+        System.out.println("**MODO COCINANDO**\n El robot todologo no puede recibir un cliente mientras cocina");
     }
 }

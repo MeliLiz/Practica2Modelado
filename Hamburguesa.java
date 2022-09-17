@@ -210,4 +210,10 @@ public abstract class Hamburguesa {
      */
     public abstract void ponerQueso();
 
+    @Override
+    public String toString(){
+        String platillo="ID: "+id+" "+nombrePlatillo+" $"+precio +"\n "+descripcion;
+        return platillo;
+    }
+
 }
