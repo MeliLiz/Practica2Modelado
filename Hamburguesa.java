@@ -3,6 +3,10 @@
  */
 public abstract class Hamburguesa {
 
+    //Colores en la terminal
+    public static final String VERDE = "\u001B[32m";
+    public static final String RESET = "\u001B[0m";
+
     private int id;
     private String nombrePlatillo;
     private String descripcion;
@@ -212,7 +216,7 @@ public abstract class Hamburguesa {
 
     @Override
     public String toString(){
-        String platillo="ID: "+id+" "+nombrePlatillo+" $"+precio +"\n "+descripcion;
+        String platillo="ID: "+id+" "+nombrePlatillo+" $"+precio +"\n "+VERDE+descripcion+RESET;
         return platillo;
     }
 

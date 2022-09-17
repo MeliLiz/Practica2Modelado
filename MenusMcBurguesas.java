@@ -7,6 +7,8 @@ import java.util.Iterator;
 public class MenusMcBurguesas {
 
     private ArrayList<Menu> listaMenus;// Lista de los menus disponibles
+    public static final String CYAN = "\u001B[36m";
+    public static final String RESET = "\u001B[0m";
 
     /**
      * Constructor
@@ -61,7 +63,7 @@ public class MenusMcBurguesas {
      */
     public void mostrarMenu() {
         for(Menu menu:listaMenus){
-            System.out.println("\n###"+menu.getNombre()+"###\n");
+            System.out.println(CYAN +"\n###"+menu.getNombre()+"###\n"+RESET);
             Iterator iterador=menu.crearIterador();
             while (iterador.hasNext()) {
                 Hamburguesa hamburguesa=(Hamburguesa)iterador.next();
