@@ -1,6 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
+    /**
+     * Codigo ascii para colores en terminal
+     */
+    public static final String ROJO = "\033[0;31m";
+    public static final String RESET = "\033[0m";
+
     public static void main(String[] args) {
 
         RobotTodologo robot = new RobotTodologo();
@@ -25,7 +31,7 @@ public class Main {
                     System.out.println();
                     break;
                 } catch (NumberFormatException ex) {
-                    System.out.println("No ingresaste un numero");
+                    System.out.println(ROJO + "No ingresaste un numero" + RESET);
                 }
             }
             switch (opcion) {
@@ -54,7 +60,8 @@ public class Main {
 
                 default:
                     System.out.println(
-                            "\nLa opcion que elegiste no es valida. Por favor elige la opcion que deseas ejecutar.");
+                            ROJO + "\nLa opcion que elegiste no es valida. Por favor elige la opcion que deseas ejecutar."
+                                    + RESET);
                     break;
 
             }
