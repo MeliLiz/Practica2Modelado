@@ -9,12 +9,16 @@ public class RobotTodologo {
     private Cliente clientePorAtender;// el cliente que se atendera
     private boolean mesaCorrecta;// si el robot esta en la mesa del cliente que se atendera
     private boolean ordenLista;// si la comida del cliente esta lista
-    private EstadoRobot estadoActual;
+    private EstadoRobot estadoActual; // el estado actual del robot
+    /**
+     * Los diferentes estados del robot
+     */
     private EstadoRobot modoSuspendido;
     private EstadoRobot modoCaminando;
     private EstadoRobot modoAtendiendo;
     private EstadoRobot modoCocinando;
     private EstadoRobot modoRecibirCliente;
+
     private MenusMcBurguesas menus;// Los menus disponibles
 
     /**
@@ -42,7 +46,7 @@ public class RobotTodologo {
     /**
      * Metodo para saber si el robot ha recibido una orden
      * 
-     * @return boolean
+     * @return Si el robot ha recibido una orden
      */
     public boolean getOrdenRecibida() {
         return ordenRecibida;
@@ -51,7 +55,7 @@ public class RobotTodologo {
     /**
      * Metodo para saber si el robot ya llego a la mesa que debe atender
      * 
-     * @return boolean
+     * @return Si el robot ya llego a la mesa que debe atender
      */
     public boolean getMesaCorrecta() {
         if (clientePorAtender.getDistancia() > 0) {
@@ -74,7 +78,7 @@ public class RobotTodologo {
     /**
      * Metodo para saber si la orden del cliente esta lista
      * 
-     * @return boolean
+     * @return Si la orden del cliente esta lista
      */
     public boolean getOrdenLista() {
         return ordenLista;
@@ -83,7 +87,7 @@ public class RobotTodologo {
     /**
      * Metodo para obtener el estado actual del robot
      * 
-     * @return EstadoRobot
+     * @return Estado actual del robot
      */
     public EstadoRobot getEstadoActual() {
         return estadoActual;
@@ -92,7 +96,7 @@ public class RobotTodologo {
     /**
      * Metodo para obtener el estado suspendido del robot
      * 
-     * @return EstadoRobot
+     * @return EstadoSuspendido del robot
      */
     public EstadoRobot getEstadoSuspendido() {
         return modoSuspendido;
@@ -101,7 +105,7 @@ public class RobotTodologo {
     /**
      * Metodo para obtener el estado caminando del robot
      * 
-     * @return EstadoRobot
+     * @return EstadoCaminando del robot
      */
     public EstadoRobot getEstadoCaminando() {
         return modoCaminando;
@@ -110,7 +114,7 @@ public class RobotTodologo {
     /**
      * Metodo para obtener el estado atendiendo del robot
      * 
-     * @return EstadoRobot
+     * @return EstadoAtendiendo del robot
      */
     public EstadoRobot getEstadoAtendiendo() {
         return modoAtendiendo;
@@ -119,7 +123,7 @@ public class RobotTodologo {
     /**
      * Metodo para obtener el estado cocinando del robot
      * 
-     * @return EstadoRobot
+     * @return EstadoCocinando del robot
      */
     public EstadoRobot getEstadoCocinando() {
         return modoCocinando;
@@ -128,7 +132,7 @@ public class RobotTodologo {
     /**
      * Metodo para obtener el estado recibir cliente del robor
      * 
-     * @return EstadoRobot
+     * @return EstadoRecibirCliente del robot
      */
     public EstadoRobot getEstadoRecibirCliente() {
         return modoRecibirCliente;
@@ -137,7 +141,7 @@ public class RobotTodologo {
     /**
      * Metodo para asignar si el robot recibio la orden o no
      * 
-     * @param recibida true si la orden de recibio, false en otro caso
+     * @param recibida true si la orden fue recibida, false en otro caso
      */
     public void setOrdenRecibida(boolean recibida) {
         ordenRecibida = recibida;
@@ -173,7 +177,7 @@ public class RobotTodologo {
     /**
      * Metodo para asignar el estado suspendido del robot
      * 
-     * @param estado
+     * @param estado El estado suspendido del robot
      */
     public void setEstadoSuspendido(EstadoSuspendido estado) {
         modoSuspendido = estado;
@@ -182,7 +186,7 @@ public class RobotTodologo {
     /**
      * Metodo para asignar el estado caminando del robot
      * 
-     * @param estado
+     * @param estado El estado caminando del robot
      */
     public void setEstadoCaminando(EstadoCaminando estado) {
         modoCaminando = estado;
@@ -191,7 +195,7 @@ public class RobotTodologo {
     /**
      * Metodo para asignar el estado atendiendo del robot
      * 
-     * @param estado
+     * @param estado El estado atendiendo del robot
      */
     public void setEstadoAtendiendo(EstadoAtendiendo estado) {
         modoAtendiendo = estado;
@@ -200,7 +204,7 @@ public class RobotTodologo {
     /**
      * Metodo para asignar el estado cocinando del robot
      * 
-     * @param estado
+     * @param estado El estado cocinando del robot
      */
     public void setEstadoCocinando(EstadoCocinando estado) {
         modoCocinando = estado;
@@ -209,7 +213,8 @@ public class RobotTodologo {
     /**
      * Metodo para recibir el cliente que se atendera
      * 
-     * @param cliente
+     * @param distanciaAlCliente La distancia que tendra el robot ocn respecto al
+     *                           cliente
      */
     public void recibirClientePorAtender(int distanciaAlCliente) {
         clientePorAtender = new Cliente(distanciaAlCliente);
@@ -260,6 +265,8 @@ public class RobotTodologo {
 
     /**
      * Metodo para mostrar los menus disponibles y obtener la orden del cliente
+     * Se le pide el id del platillo al usuario, manda mensajes de errores en caso
+     * de cometerlos.
      */
     public void mostrarMenu() {
         Scanner scanner = new Scanner(System.in);
@@ -297,6 +304,8 @@ public class RobotTodologo {
 
     /**
      * Metodo para recibir la distancia hasta un nuevo cliente por atender
+     * Se le pide al usuario que ingrese la distancia, manda errores en caso de
+     * cometerlos
      */
     public void setCliente() {
         Scanner scanner = new Scanner(System.in);

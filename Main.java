@@ -9,8 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        RobotTodologo robot = new RobotTodologo();
-        Scanner scanner = new Scanner(System.in);
+        RobotTodologo robot = new RobotTodologo(); // el robot que hara todo el trabajo
+        Scanner scanner = new Scanner(System.in); // Scanner para las opciones del usuario
         int opcion;
 
         System.out.println("**Bienvenido a McBurguesas** ");

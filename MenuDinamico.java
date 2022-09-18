@@ -10,59 +10,66 @@ public class MenuDinamico implements Menu {
 
     /**
      * Constructor
-     * 
-     * @param items Los menus disponibles
      */
     public MenuDinamico() {
         menuItems = new ArrayList<>();
 
-    
         addItem(new HamburguesaBBQ());
         addItem(new HamburguesaDeFrijol());
         addItem(new HamburguesaDePollo());
     }
 
     /**
-     * Metodo para obtener la lista de menus
+     * Metodo para obtener la lista donde estan los items del menu
      * 
-     * @return
+     * @return La lista donde estan los items del menu
      */
     public ArrayList<Hamburguesa> getItems() {
         return menuItems;
     }
 
     /**
-     * Metodo para asignar los items del menu
+     * Metodo para asignar una nueva lista a los items del menu
      * 
-     * @param menuItems
+     * @param items La nueva lista a asignar
      */
     public void setItems(ArrayList<Hamburguesa> items) {
         menuItems = items;
     }
 
     /**
-     * Metodo para agregar items al mennu
+     * Metodo para agregar items al menu
      * 
-     * @param item
+     * @param item La nueva Hamburguesa a agregar
      */
     public void addItem(Hamburguesa item) {
         menuItems.add(item);
     }
 
     /**
-     * Metodo para eliminar items al mennu
+     * Metodo para eliminar items al menu
      * 
-     * @param item
+     * @param item La Hamburguesa a eliminar
      */
     public void eliminarItem(Hamburguesa item) {
 
     }
 
+    /**
+     * Metodo para obtener un iterador
+     * 
+     * @return El iterador del menu
+     */
     @Override
     public Iterator crearIterador() {
         return menuItems.iterator();
     }
 
+    /**
+     * Metodo para obtener el nombre del menu
+     * 
+     * @return El nombre del menu
+     */
     @Override
     public String getNombre() {
         return "***MENU DINAMICO**";

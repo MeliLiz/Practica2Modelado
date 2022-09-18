@@ -12,8 +12,6 @@ public class MenusMcBurguesas {
 
     /**
      * Constructor
-     * 
-     * @param menus La lista de menus
      */
     public MenusMcBurguesas() {
         listaMenus = new ArrayList<Menu>();
@@ -25,7 +23,7 @@ public class MenusMcBurguesas {
     /**
      * Metodo para obtener la lista de menus disponibles
      * 
-     * @return
+     * @return La lista de menus disponibles
      */
     public ArrayList<Menu> getMenusDisponibles() {
         return listaMenus;
@@ -34,7 +32,7 @@ public class MenusMcBurguesas {
     /**
      * Metodo para asignar la lista de menus disponibles
      * 
-     * @param menus
+     * @param menus La nueva lista de menus disponibles
      */
     public void setMenusDisponibles(ArrayList<Menu> menus) {
         listaMenus = menus;
@@ -60,13 +58,16 @@ public class MenusMcBurguesas {
 
     /**
      * Metodo para mostrar los menus disponibles
+     * Se usa un for each para iterar en cada menu en la lista de menus.
+     * Se manda a llamar a su iterador, para imprimir los datos de cada Hamburguesa
+     * en los menus.
      */
     public void mostrarMenu() {
-        for(Menu menu:listaMenus){
-            System.out.println(CYAN +"\n###"+menu.getNombre()+"###\n"+RESET);
-            Iterator iterador=menu.crearIterador();
+        for (Menu menu : listaMenus) {
+            System.out.println(CYAN + "\n###" + menu.getNombre() + "###\n" + RESET);
+            Iterator iterador = menu.crearIterador();
             while (iterador.hasNext()) {
-                Hamburguesa hamburguesa=(Hamburguesa)iterador.next();
+                Hamburguesa hamburguesa = (Hamburguesa) iterador.next();
                 System.out.println(hamburguesa);
             }
         }
@@ -74,14 +75,15 @@ public class MenusMcBurguesas {
 
     /**
      * Metodo para buscar un platillo con su id
+     * 
      * @param id El id del platillo
      */
-    public Hamburguesa buscarPlatillo(int id){
-        for(Menu menu:listaMenus){
-            Iterator iterador=menu.crearIterador();
+    public Hamburguesa buscarPlatillo(int id) {
+        for (Menu menu : listaMenus) {
+            Iterator iterador = menu.crearIterador();
             while (iterador.hasNext()) {
-                Hamburguesa hamburguesa=(Hamburguesa)iterador.next();
-                if(hamburguesa.getID()==id){
+                Hamburguesa hamburguesa = (Hamburguesa) iterador.next();
+                if (hamburguesa.getID() == id) {
                     return hamburguesa;
                 }
             }
@@ -89,8 +91,13 @@ public class MenusMcBurguesas {
         return null;
     }
 
+    /**
+     * main para pruebas
+     * 
+     * @param args Los arguentos del main
+     */
     public static void main(String[] args) {
-        MenusMcBurguesas menu=new MenusMcBurguesas();
+        MenusMcBurguesas menu = new MenusMcBurguesas();
         menu.mostrarMenu();
     }
 }
