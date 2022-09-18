@@ -1,4 +1,12 @@
+/**
+ * Clase que simula una hamburguesa ClubHouse
+ * @see Hamburguesa
+ */
 public class HamburguesaClubHouse extends Hamburguesa{
+
+    /**
+     * Constructor
+     */
     public HamburguesaClubHouse(){
         super(4020,"Hamburguesa ClubHouse", "Hamburguesa con carne de pastor vegetariano con lechuga y piña",250,false,true);
     }

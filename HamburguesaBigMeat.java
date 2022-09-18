@@ -1,4 +1,12 @@
+/**
+ * Clase que simula una hamburguesa BigMeat
+ * @see Hamburguesa
+ */
 public class HamburguesaBigMeat extends Hamburguesa {
+
+    /**
+     * Constructor
+     */
     public HamburguesaBigMeat(){
         super(2074, "Hamburguesa BigMeat", "Hamburguesa con carne de arrachera, queso mozarella, aguacate, lechuga y cebolla", 300, true,false);
     }

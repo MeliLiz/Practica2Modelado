@@ -1,5 +1,6 @@
 /**
  * Clase que simula es estado caminando de un robot todologo
+ * @see EstadoRobot
  */
 public class EstadoCaminando implements EstadoRobot {
 
@@ -43,7 +44,7 @@ public class EstadoCaminando implements EstadoRobot {
 
     @Override
     public void caminar() {
-        if (!robot.getMesaCorrecta()) {
+        if (!robot.getMesaCorrecta()) {//si el robot no ha llegado a la mesa del cliente
             robot.reducirDistancia();
             System.out.println(MORADO+"**ESTADO CAMINANDO** \n El robot todologo se esta acercando al cliente"+RESET);
         } else {
@@ -53,7 +54,7 @@ public class EstadoCaminando implements EstadoRobot {
 
     @Override
     public void atender() {
-        if (!robot.getMesaCorrecta()) {
+        if (!robot.getMesaCorrecta()) {//si el robot no ha llegado a la mesa del cliente
             System.out.println(MORADO+"**ESTADO CAMINANDO** \n El robot todologo no puede atender sin haber llegado a la mesa del cliente"+RESET);
         } else {
             System.out.println(MORADO+"**ESTADO CAMINANDO** \n El robot todologo pasara al ESTADO ATENDER"+RESET);

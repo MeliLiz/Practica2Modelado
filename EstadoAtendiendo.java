@@ -1,5 +1,6 @@
 /**
  * Clase que simula es estado atendiendo de un robot todologo
+ * @see EstadoRobot
  */
 public class EstadoAtendiendo implements EstadoRobot {
 

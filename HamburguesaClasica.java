@@ -1,5 +1,12 @@
+/**
+ * Clase que sumula una hamburguesa clasica
+ * @see Hamburguesa
+ */
 public class HamburguesaClasica extends Hamburguesa{
 
+    /**
+     * Constructor
+     */
     public HamburguesaClasica(){
         super(1144,"HamburguesaClasica","Hamburquesa con carne de res, queso manchego, lechuga y jitomate",100,true,false);
     }

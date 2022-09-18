@@ -3,10 +3,6 @@
  */
 public abstract class Hamburguesa {
 
-    //Colores en la terminal
-    public static final String VERDE = "\u001B[32m";
-    public static final String RESET = "\u001B[0m";
-
     private int id;
     private String nombrePlatillo;
     private String descripcion;
@@ -14,8 +10,12 @@ public abstract class Hamburguesa {
     private boolean tieneQueso;
     private boolean vegetariano;
 
+    //Colores en la terminal
+    public static final String VERDE = "\u001B[32m";
+    public static final String RESET = "\u001B[0m";
+
     /**
-     * Constructor
+     * Constructor de un platillo
      * 
      * @param id
      * @param nombrePlatillo
@@ -143,7 +143,7 @@ public abstract class Hamburguesa {
     }
 
     /**
-     * Metodo patra preparar una hamburguesa
+     * Metodo para preparar una hamburguesa
      */
     public void prepararHamburguesa(){
         prepararCarne();
@@ -182,7 +182,7 @@ public abstract class Hamburguesa {
      * Metodo para poner sobres de mostaza en la orden de hamburguesa
      */
     public void ponerMostaza(){
-        System.out.println("Poniendo sobres de mostaza");
+        System.out.println("Poniendo mostaza");
     }
 
     /**
@@ -201,7 +201,7 @@ public abstract class Hamburguesa {
      * Metodo para poner sobres de catsup en la orden de hamburguesa
      */
     public void ponerCatsup(){
-        System.out.println("Poniendo sobres de catsup");
+        System.out.println("Poniendo catsup");
     }
 
     /**

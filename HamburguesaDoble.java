@@ -1,4 +1,12 @@
+/**
+ * Clase que simula una hamburguesa doble
+ * @see Hamburguesa
+ */
 public class HamburguesaDoble extends Hamburguesa {
+
+    /**
+     * Constructor
+     */
     public HamburguesaDoble(){
         super(1234,"Hamburguesa doble", "Hamburguesa con doble carne de res, queso amarillo, lechuga, jitomate y cebolla",160,true,false);
     }

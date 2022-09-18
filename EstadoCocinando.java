@@ -1,5 +1,6 @@
 /**
  * Clase que simula es estado cocinando de un robot todologo
+ * @see EstadoRobot
  */
 public class EstadoCocinando implements EstadoRobot {
 
@@ -50,7 +51,7 @@ public class EstadoCocinando implements EstadoRobot {
 
     @Override
     public void atender() {
-        if(robot.getOrdenLista()){
+        if(robot.getOrdenLista()){//si el platillo del cliente esta listo
             System.out.println(MORADO+"**MODO COCINANDO**Su orden esta lista. El robot todologo pasara a ESTADO ATENDIENDO"+RESET);
             robot.setEstadoActual(robot.getEstadoAtendiendo());
         }else{
@@ -61,7 +62,7 @@ public class EstadoCocinando implements EstadoRobot {
 
     @Override
     public void cocinar() {
-        if(robot.getOrdenLista()){
+        if(robot.getOrdenLista()){//si el platillo del cliente esta listo
             System.out.println(MORADO+"**MODO COCINANDO** \n El robot todologo ya tiene la orden del cliente lista, ya no puede cocinar."+RESET);
         }else{
             System.out.println(MORADO+"**MODO COCINANDO** \n El robot todologo ya se encuentra cocinando"+RESET);

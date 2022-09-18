@@ -1,4 +1,12 @@
+/**
+ * Clase que simula una hamburguesa de frijol
+ * @see Hamburguesa
+ */
 public class HamburguesaDeFrijol extends Hamburguesa{
+
+    /**
+     * Constructor
+     */
     public HamburguesaDeFrijol(){
         super(1010,"Hamburguesa de frijol", "Hamburguesa con carne de frijol, con queso crema, lechuga y jitomate",140,true,true);
     }

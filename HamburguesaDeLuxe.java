@@ -1,4 +1,12 @@
+/**
+ * Clase que simula una hamburguesa deLuxe
+ * @see Hamburguesa
+ */
 public class HamburguesaDeLuxe extends Hamburguesa{
+
+    /**
+     * Constructor
+     */
     public HamburguesaDeLuxe(){
         super(1997,"Hamburguesa DeLuxe","Hamburguesa de carne rib-eye con tocino queso fondue, lechuga, jitomate, aguacate y cebolla",310,true,false);
     }
