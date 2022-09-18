@@ -4,6 +4,11 @@
 public class EstadoSuspendido implements EstadoRobot {
 
     private RobotTodologo robot;// El robot asociado
+    /**
+     * codigo ascci para colores en terminal
+     */
+    public static final String MORADO = "\033[0;95m";
+    public static final String RESET = "\033[0m";
 
     /**
      * Constructor del Estado Suspendido
@@ -17,10 +22,12 @@ public class EstadoSuspendido implements EstadoRobot {
     @Override
     public void suspender() {
         if (robot.getOrdenLista()) {
-            System.out.println("**ESTADO SUSPENDIDO** \n El robot todologo pasara al ESTADO SUSPENDIDO");
+            System.out
+                    .println(MORADO + "**ESTADO SUSPENDIDO** \n El robot todologo pasara al ESTADO SUSPENDIDO" + RESET);
         } else {
             System.out.println(
-                    "**ESTADO SUSPENDIDO** \n El robot todologo se encuentra suspendido, esperando un cliente");
+                    MORADO + "**ESTADO SUSPENDIDO** \n El robot todologo se encuentra suspendido, esperando un cliente"
+                            + RESET);
 
         }
 
@@ -30,12 +37,14 @@ public class EstadoSuspendido implements EstadoRobot {
     public void caminar() {
         if (robot.getOrdenLista()) {
             System.out.println(
-                    "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
-        } else if (robot.getClientePorAtender() != null && robot.getClientePorAtender().getDistancia()>0) {
-            System.out.println("**MODO SUSPENDIDO**\n El robot todologo se movera hacia el cliente");
+                    MORADO + "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO"
+                            + RESET);
+        } else if (robot.getClientePorAtender() != null && robot.getClientePorAtender().getDistancia() > 0) {
+            System.out.println(MORADO + "**MODO SUSPENDIDO**\n El robot todologo se movera hacia el cliente" + RESET);
             robot.setEstadoActual(robot.getEstadoCaminando());
-        }else{
-            System.out.println("**MODO SUSPENDIDO**\nEl robot todologo no puede caminar sin antes recibir a un cliente");
+        } else {
+            System.out.println(MORADO
+                    + "**MODO SUSPENDIDO**\nEl robot todologo no puede caminar sin antes recibir a un cliente" + RESET);
         }
 
     }
@@ -44,11 +53,13 @@ public class EstadoSuspendido implements EstadoRobot {
     public void atender() {
         if (robot.getOrdenLista()) {
             System.out.println(
-                    "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
+                    MORADO + "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO"
+                            + RESET);
         } else {
             System.out
                     .println(
-                            "**ESTADO SUSPENDIDO**\n El robot toldologo no puede atender si esta en ESTADO SUSPENDIDO");
+                            MORADO + "**ESTADO SUSPENDIDO**\n El robot toldologo no puede atender si esta en ESTADO SUSPENDIDO"
+                                    + RESET);
         }
 
     }
@@ -57,17 +68,19 @@ public class EstadoSuspendido implements EstadoRobot {
     public void cocinar() {
         if (robot.getOrdenLista()) {
             System.out.println(
-                    "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO");
+                    MORADO + "**ESTADO SUSPENDIDO** \n El robot todologo ha terminado de cocinar, pasara a ESTADO SUSPENDIDO"
+                            + RESET);
         } else {
             System.out
                     .println(
-                            "**ESTADO SUSPENDIDO**\n El robot toldologo no puede cocinar si esta en ESTADO SUSPENDIDO");
+                            MORADO + "**ESTADO SUSPENDIDO**\n El robot toldologo no puede cocinar si esta en ESTADO SUSPENDIDO"
+                                    + RESET);
         }
     }
 
     @Override
     public void recibirCliente() {
-        System.out.println("**MODO SUSPENDIDO**\n El robot todologo pasara al estado RECIBIR CLIENTE");
+        System.out.println(MORADO + "**MODO SUSPENDIDO**\n El robot todologo pasara al estado RECIBIR CLIENTE" + RESET);
         robot.setEstadoActual(robot.getEstadoRecibirCliente());
     }
 
