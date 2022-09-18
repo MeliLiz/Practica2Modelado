@@ -18,6 +18,12 @@ public class RobotTodologo {
     private MenusMcBurguesas menus;// Los menus disponibles
 
     /**
+     * Codigo ascii para colores en terminal
+     */
+    public static final String ROJO = "\033[0;31m";
+    public static final String RESET = "\033[0m";
+
+    /**
      * Constructor de un robot
      */
     public RobotTodologo() {
@@ -269,11 +275,11 @@ public class RobotTodologo {
                     clientePorAtender.setPedido(hamburguesa);
                     ordenRecibida = true;
                 } else {
-                    System.out.println("El id del platillo que elegiste no es valido");
+                    System.out.println(ROJO + "El id del platillo que elegiste no es valido" + RESET);
                     respuesta = 0;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("No ingresaste un numero");
+                System.out.println(ROJO + "No ingresaste un numero" + RESET);
             }
         }
 
@@ -300,6 +306,7 @@ public class RobotTodologo {
             try {
                 respuesta = Integer.parseInt(scanner.nextLine());
                 if (respuesta < 1 || respuesta > 10) {
+                    System.out.println(ROJO + "\nIngresa un numero del 1 al 10\n" + RESET);
                     respuesta = 0;
                 } else {
                     recibirClientePorAtender(respuesta);
@@ -308,7 +315,7 @@ public class RobotTodologo {
                     ordenLista = false;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("No ingresaste un numero");
+                System.out.println(ROJO + "\nNo se ingreso un numero, vuelva a intentar\n" + RESET);
             }
         }
     }
