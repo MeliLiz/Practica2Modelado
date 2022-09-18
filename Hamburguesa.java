@@ -4,30 +4,30 @@
 public abstract class Hamburguesa {
 
     private int id;
-    private String nombrePlatillo;
+    private String nombreHamburguesa;
     private String descripcion;
     private double precio;
     private boolean tieneQueso;
     private boolean vegetariano;
 
-    //Colores en la terminal
+    // Codigo ascii para colores en terminal
     public static final String VERDE = "\u001B[32m";
     public static final String RESET = "\u001B[0m";
 
     /**
      * Constructor de un platillo
      * 
-     * @param id
-     * @param nombrePlatillo
-     * @param descripcion
-     * @param precio
-     * @param tieneQueso
-     * @param vegetariano
+     * @param id                El id de la Hamburguesa
+     * @param nombreHamburguesa EL nombre de la Hamburguesa
+     * @param descripcion       La descripcion de la Hamburguesa
+     * @param precio            El precio de la Hamburguesa
+     * @param tieneQueso        Si la Hamburguesa tiene queso
+     * @param vegetariano       Si la Hamburguesa es vegetariano
      */
-    public Hamburguesa(int id, String nombrePlatillo, String descripcion, double precio, boolean tieneQueso,
+    public Hamburguesa(int id, String nombreHamburguesa, String descripcion, double precio, boolean tieneQueso,
             boolean vegetariano) {
         this.id = id;
-        this.nombrePlatillo = nombrePlatillo;
+        this.nombreHamburguesa = nombreHamburguesa;
         this.descripcion = descripcion;
         this.precio = precio;
         this.tieneQueso = tieneQueso;
@@ -35,108 +35,109 @@ public abstract class Hamburguesa {
     }
 
     /**
-     * Obtener el id del item
+     * Metodo para obtener el id de la Hamburguesa
      * 
-     * @return int
+     * @return El id de la Hamburguesa
      */
     public int getID() {
         return id;
     }
 
     /**
-     * Obtener el nombre del item
+     * Metodo para obtener el nombre de la Hamburguesa
      * 
-     * @return String
+     * @return el nombre de la Hamburguesa
      */
     public String getNombre() {
-        return nombrePlatillo;
+        return nombreHamburguesa;
     }
 
     /**
-     * Obtener la descripcion del item
+     * Metodo para obtener la descripcion de la Hamburguesa
      * 
-     * @return String
+     * @return La descripcion de la Hamburguesa
      */
     public String getDescripcion() {
         return descripcion;
     }
 
     /**
-     * Obtener el precio del item
+     * Metodo para obtener el precio de la Hamburguesa
      * 
-     * @return double
+     * @return El precio de la Hamburguesa
      */
     public double getPrecio() {
         return precio;
     }
 
     /**
-     * Metodo para saber si el platillo tiene queso
+     * Metodo para saber la Hamburguesa tiene queso
      * 
-     * @return boolean
+     * @return Si la Hamburguesa tiene queso
      */
     public boolean tieneQueso() {
         return tieneQueso;
     }
 
     /**
-     * Metodo para saber si el item es vegetariano
+     * Metodo para saber si la Hamburguesa es vegetariana
      * 
-     * @return boolean
+     * @return Si la Hamburguesa es vegetariana
      */
     public boolean esVegetariana() {
         return vegetariano;
     }
 
     /**
-     * Metodo para asignar un id al platillo
+     * Metodo para asignar un id a la Hamburguesa
      * 
-     * @param id
+     * @param id El nuevo id de la Hamburguesa
      */
     public void setID(int id) {
         this.id = id;
     }
 
     /**
-     * Metodo para asignar el nombre del platillo
+     * Metodo para asignar un nuevo nombre a la Hamburguesa
      * 
-     * @param nombre
+     * @param nombre El nuevo nombre de la Hamburguesa
      */
     public void setNombre(String nombre) {
-        nombrePlatillo = nombre;
+        nombreHamburguesa = nombre;
     }
 
     /**
-     * Metodo para asignar la descripcion del platillo
+     * Metodo para asignar la descripcion a la Hamburguesa
      * 
-     * @param descripcion
+     * @param descripcion La nueva descripcion de la Hamburguesa
      */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
     /**
-     * Metodo para asignar el precio del platillo
+     * Metodo para asignar el precio de la Hamburguesa
      * 
-     * @param precio
+     * @param precio El nuevo precio de la Hamburguesa
      */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
     /**
-     * Metodo para determinar si el platillo tiene queso
+     * Metodo para modificar si la Hamburguesa tiene queso
      * 
-     * @param queso
+     * @param queso El booleano para que la Hamburguesa ahora lleve queso o no
      */
     public void setTieneQueso(boolean queso) {
         tieneQueso = queso;
     }
 
     /**
-     * Metodo para determinar si el platillo es vegetariano
+     * Metodo para modificar si la Hamburguesa es vegeteriana
      * 
-     * @param vegetariano
+     * @param vegetariano El booleano para que la Hamburguesa ahora sea vegetariana
+     *                    o no
      */
     public void setVegetariano(boolean vegetariano) {
         this.vegetariano = vegetariano;
@@ -144,8 +145,9 @@ public abstract class Hamburguesa {
 
     /**
      * Metodo para preparar una hamburguesa
+     * Los pasos a seguir son iguales en todas las hamburgesas
      */
-    public void prepararHamburguesa(){
+    public void prepararHamburguesa() {
         prepararCarne();
         ponerPanDeAbajo();
         ponerMayonesa();
@@ -160,47 +162,42 @@ public abstract class Hamburguesa {
     /**
      * Metodo para poner el pan de abajo a una hamburguesa
      */
-    public void ponerPanDeAbajo(){
+    public void ponerPanDeAbajo() {
         System.out.println("Poniendo la base del pan");
     }
 
     /**
      * Metodo para poner al pan de arriba a una hamburguesa
      */
-    public void ponerPanDeArriba(){
+    public void ponerPanDeArriba() {
         System.out.println("Poniedo la tapa a la hamburguesa");
     }
 
     /**
      * Metodo para poner la mayonesa a la hamburguesa
      */
-    public void ponerMayonesa(){
+    public void ponerMayonesa() {
         System.out.println("Poniendo mayonesa");
     }
 
     /**
      * Metodo para poner sobres de mostaza en la orden de hamburguesa
      */
-    public void ponerMostaza(){
+    public void ponerMostaza() {
         System.out.println("Poniendo mostaza");
     }
 
     /**
      * Metodo para poner la carne en la hamburguesa
      */
-    public void ponerCarne(){
+    public void ponerCarne() {
         System.out.println("Poniendo la carne");
     }
 
     /**
-     * Metodo para poner vegetales en la hamburguesa
-     */
-    public abstract void ponerVegetales();
-
-    /**
      * Metodo para poner sobres de catsup en la orden de hamburguesa
      */
-    public void ponerCatsup(){
+    public void ponerCatsup() {
         System.out.println("Poniendo catsup");
     }
 
@@ -214,9 +211,17 @@ public abstract class Hamburguesa {
      */
     public abstract void ponerQueso();
 
+    /**
+     * Metodo para poner vegetales en la hamburguesa
+     */
+    public abstract void ponerVegetales();
+
+    /**
+     * Metodo que regresa una cadena con todos los datos de la Hamburguesa
+     */
     @Override
-    public String toString(){
-        String platillo="ID: "+id+" "+nombrePlatillo+" $"+precio +"\n "+VERDE+descripcion+RESET;
+    public String toString() {
+        String platillo = "ID: " + id + " " + nombreHamburguesa + " $" + precio + "\n " + VERDE + descripcion + RESET;
         return platillo;
     }
 
